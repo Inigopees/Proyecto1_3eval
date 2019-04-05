@@ -12,10 +12,10 @@ import javax.swing.JTextField;
 
 public class Prueba3 extends JFrame implements ActionListener{
 	
-	JLabel lblTitulo1,lblTitulo2;
-	JButton btnPanel1,btnPanel2,btnPanel3,CrearBD,EliminarBD;
+	JLabel lblTitulo1,lblTitulo2,LBNombreBD;
+	JButton btnPanel1,btnPanel2,btnPanel3,CrearBD,EliminarBD,OrCrearBD;
 	JPanel panelSubMenu1,panel1,panel2;
-	JTextField campo;
+	JTextField campo,TFNombreDB;
 	
 
 	public Prueba3() {
@@ -72,7 +72,7 @@ public class Prueba3 extends JFrame implements ActionListener{
 		add(panel2);
 	}
 	
-	private void cargarSubMenu1() {
+	private void cargarSubMenu1() {//SUBMENU CREATE - DELETE DB//
 		CrearBD = new JButton("Crear nueva BD");
 		CrearBD.setBounds(10,5,130,23);
 		CrearBD.addActionListener(this);
@@ -85,16 +85,28 @@ public class Prueba3 extends JFrame implements ActionListener{
 		panelSubMenu1.add(EliminarBD);
 	}
 	
-	private void cargarComponentesPanel1() {
+	private void cargarComponentesPanel1() {//COMPONENTES PANTALLA CREAR DB//
 		
-		lblTitulo1 = new JLabel("Crear BD : ");
-		lblTitulo1.setBounds(5,0,221,51);
+		lblTitulo1 = new JLabel("Crear nueva Base de datos : ");
+		lblTitulo1.setBounds(100,0,221,51);
+		
+		LBNombreBD = new JLabel("Nombre : ");
+		LBNombreBD.setBounds(5,55,70,25);
+		
+		TFNombreDB = new JTextField();
+		TFNombreDB.setBounds(75,55,70,25);
+		
+		OrCrearBD = new JButton("Crear BD");
+		OrCrearBD.setBounds(140,90,100,25);
 		
 		panel1.add(lblTitulo1);
+		panel1.add(LBNombreBD);
+		panel1.add(TFNombreDB);
+		panel1.add(OrCrearBD);
 		
 	}
 	
-	private void cargarComponentesPanel2() {
+	private void cargarComponentesPanel2() {//COMPONENTES PANTALLA DELETE DB//
 
 		campo = new JTextField();
 		campo.setBounds(10,40,221,25);
@@ -123,6 +135,9 @@ public class Prueba3 extends JFrame implements ActionListener{
 		if(e.getSource()==btnPanel1) {
 			cargarSubMenu1();
 			panelSubMenu1.setVisible(true);
+		}
+		if(e.getSource()==OrCrearBD) {
+			
 		}
 	}
 }
